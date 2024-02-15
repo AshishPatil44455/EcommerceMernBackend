@@ -2,23 +2,23 @@ import mongoose from "mongoose";
 const schema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "User name is required"],
+        required: [true, "Product name is required"],
     },
     Photo: {
         type: String,
-        required: [true, "User photo is required"],
+        required: [false, "Product photo is required"],
     },
     price: {
         type: Number,
-        required: [true, "User price is required"],
+        required: [true, "Product price is required"],
     },
     stock: {
         type: Number,
-        required: [true, "User stock is required"],
+        required: [true, "Product stock is required"],
     },
     category: {
         type: String,
-        required: [true, "User category is required"],
+        required: [true, "Product category is required"],
         trim: true,
     },
 }, {

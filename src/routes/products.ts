@@ -1,10 +1,19 @@
 import express from "express";
 
 import { adminOnly } from "../middlewares/auth.js";
+
+import {
+  getAllCategories,
+  getlatestProducts,
+  newProduct,
+} from "../controllers/product.js";
 import { singleUpload } from "../middlewares/multer.js";
-import { newProduct } from "../controllers/product.js";
 
 const app = express.Router();
-app.post("/new", singleUpload, newProduct);
+app.post("/new", adminOnly, singleUpload, newProduct);
+
+app.get("/latest", getlatestProducts);
+
+app.get("/categories", getAllCategories);
 
 export default app;
